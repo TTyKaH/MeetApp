@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #3b3b3b;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #ececec;
+}
+
+a {
+  text-decoration: none;
+  transition: background-color 0.1s linear;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.wrap-px {
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px 0;
+
+  &:hover {
+    background: none;
+  }
+}

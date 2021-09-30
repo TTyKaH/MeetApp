@@ -1,13 +1,14 @@
 <template>
   <footer>
-    <nav>
-      <a href="#">link</a>
-      <a href="#">link</a>
-      <a href="#">link</a>
-      <a href="#">link</a>
-      <a href="#">link</a>
-      <a href="#">link</a>
-    </nav>
+    <div class="wrap">
+      <router-link to="/" class="logo">MeetApp</router-link>
+      <div>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -15,4 +16,21 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="scss">
+footer {
+  background-color: #f6f6f6;
+  box-shadow: 0 0 10px 1px #b1b1b1;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div {
+      a {
+        padding: 5px;
+      }
+    }
+  }
+}
+</style>

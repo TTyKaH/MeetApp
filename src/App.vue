@@ -1,7 +1,11 @@
 <template>
   <div class="app">
-    <Header></Header>
-    <router-view />
+    <div>
+      <Header></Header>
+      <div class="content">
+        <router-view />
+      </div>
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -16,4 +20,18 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/main.scss";
+.app {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+
+  .content {
+    margin: 40px 0;
+  }
+
+  footer {
+    justify-self: flex-end;
+  }
+}
 </style>
