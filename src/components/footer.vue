@@ -19,7 +19,7 @@ export default {};
 <style lang="scss">
 footer {
   background-color: #f6f6f6;
-  box-shadow: 0 0 10px 1px #b1b1b1;
+  box-shadow: 0 0 10px 1px #d8d8d8;
 
   .wrap {
     display: flex;
