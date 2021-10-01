@@ -45,12 +45,12 @@
           </div>
         </div>
         <div class="meetings-table">
-          <div class="row">some info about meet</div>
-          <div class="row">some info about meet</div>
-          <div class="row">some info about meet</div>
-          <div class="row">some info about meet</div>
-          <div class="row">some info about meet</div>
-          <div class="row">some info about meet</div>
+          <div class="row">some info about meet <a href="#">action</a></div>
+          <div class="row">some info about meet <a href="#">action</a></div>
+          <div class="row">some info about meet <a href="#">action</a></div>
+          <div class="row">some info about meet <a href="#">action</a></div>
+          <div class="row">some info about meet <a href="#">action</a></div>
+          <div class="row">some info about meet <a href="#">action</a></div>
         </div>
       </div>
     </section>
@@ -68,6 +68,7 @@ export default {};
     .wrap {
       background-color: #f6f6f6;
       border-radius: 3px;
+      box-shadow: 0 2px 10px 1px #d8d8d8;
 
       .user-head {
         display: flex;
@@ -94,6 +95,7 @@ export default {};
     .wrap {
       background-color: #f6f6f6;
       border-radius: 3px;
+      box-shadow: 0 2px 10px 1px #d8d8d8;
 
       .meetings-action {
         display: flex;
@@ -105,12 +107,13 @@ export default {};
         }
       }
 
-      .user-data {
+      .meetings-table {
         display: grid;
         gap: 5px;
 
-        .field {
+        .row {
           display: flex;
+          justify-content: space-between;
         }
       }
     }

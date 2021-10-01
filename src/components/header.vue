@@ -12,10 +12,10 @@
         <!-- переключение через vuex - переменная "isSigniN" -->
         <div class="authorization">
           <div>
-            <a href="#">Sign-in</a>
-            <a href="#">Sign-up</a>
+            <router-link class="btn" to="/sign-in">Sign-in</router-link>
+            <router-link class="btn" to="/sign-up">Sign-up</router-link>
           </div>
-          <a href="#">Sign-out</a>
+          <router-link class="btn" to="/">Sign-out</router-link>
         </div>
       </div>
     </div>
@@ -43,6 +43,16 @@ header {
       nav {
         display: flex;
         align-items: center;
+      }
+
+      .authorization {
+        display: flex;
+        gap: 5px;
+
+        > div {
+          display: flex;
+          gap: 5px;
+        }
       }
 
       a {

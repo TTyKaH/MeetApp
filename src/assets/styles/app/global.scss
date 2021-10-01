@@ -23,16 +23,28 @@ a {
 .wrap {
   max-width: 1200px;
   margin: auto;
-}
 
-.wrap-px {
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  &-px {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-.wrap-py {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  &-py {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &-xl {
+    max-width: 900px;
+  }
+
+  &-sm {
+    max-width: 600px;
+  }
+
+  &-xs {
+    max-width: 400px;
+  }
 }
 
 .logo {
@@ -46,5 +58,15 @@ a {
 }
 
 .btn {
-  background-color: #fff;
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 3px;
+  border: none;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
 }
