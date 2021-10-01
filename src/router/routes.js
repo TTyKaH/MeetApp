@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import index from "@/pages/index.vue";
 import meetingsInfo from "@/pages/meetings-info.vue";
+import createMeet from "@/pages/create-meet.vue";
 import editProfile from "@/pages/edit-profile.vue";
 import editMeet from "@/pages/edit-meet.vue";
 import signIn from "@/pages/sign-in.vue";
@@ -17,6 +18,11 @@ const routes = [
     path: "/meetings-info",
     name: "meetingsInfo",
     component: meetingsInfo,
+  },
+  {
+    path: "/create-meet",
+    name: "createMeet",
+    component: createMeet,
   },
   {
     path: "/edit-meet",

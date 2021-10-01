@@ -1,13 +1,19 @@
 <template>
-  <div class="edit-meet">
+  <div class="create-meet">
     <div class="wrap wrap-px wrap-py wrap-sm">
-      <div class="fields">
-        <div class="field">some field about meet<a href="#">action</a></div>
-        <div class="field">some field about meet<a href="#">action</a></div>
-        <div class="field">some field about meet<a href="#">action</a></div>
-        <div class="field">some field about meet<a href="#">action</a></div>
-        <div class="field">some field about meet<a href="#">action</a></div>
-      </div>
+      <form action="">
+        <label>
+          Input name
+          <input type="text" />
+        </label>
+        <label>
+          Input name
+          <input type="text" />
+        </label>
+        <div class="action">
+          <button class="btn" type="submit">Create meet</button>
+        </div>
+      </form>
       <div class="calendar">
         Calendar
         <div>
@@ -53,20 +59,27 @@ export default {};
 </script>
 
 <style lang="scss">
-.edit-meet {
+.create-meet {
   .wrap {
     background-color: #f6f6f6;
     display: flex;
     flex-direction: column;
     gap: 24px;
 
-    .fields {
+    form {
       display: grid;
-      gap: 5px;
+      gap: 10px;
 
-      .field {
-        display: flex;
-        justify-content: space-between;
+      label {
+        display: grid;
+        gap: 5px;
+      }
+
+      .action {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
       }
     }
 
