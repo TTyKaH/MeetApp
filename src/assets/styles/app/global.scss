@@ -26,7 +26,13 @@ a {
 }
 
 .wrap-px {
-  padding: 0 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.wrap-py {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .logo {
@@ -37,4 +43,8 @@ a {
   &:hover {
     background: none;
   }
+}
+
+.btn {
+  background-color: #fff;
 }

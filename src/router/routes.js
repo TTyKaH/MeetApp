@@ -1,16 +1,23 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import homepage from "@/pages/index.vue";
+import index from "@/pages/index.vue";
+import meetingsInfo from "@/pages/meetings-info.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: homepage,
+    component: index,
+  },
+  {
+    path: "/meetings-info",
+    name: "meetingsInfo",
+    component: meetingsInfo,
   },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
+  // mode: "history",
   routes,
 });
 

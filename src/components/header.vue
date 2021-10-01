@@ -4,14 +4,18 @@
       <router-link to="/" class="logo">MeetApp</router-link>
       <div>
         <nav>
-          <a href="#">link</a>
+          <router-link to="/meetings-info">link</router-link>
           <a href="#">link</a>
           <a href="#">link</a>
           <a href="#">link</a>
         </nav>
+        <!-- переключение через vuex - переменная "isSigniN" -->
         <div class="authorization">
-          <a href="#">Sign-in</a>
-          <a href="#">Sign-up</a>
+          <div>
+            <a href="#">Sign-in</a>
+            <a href="#">Sign-up</a>
+          </div>
+          <a href="#">Sign-out</a>
         </div>
       </div>
     </div>
@@ -35,6 +39,11 @@ header {
     > div {
       display: flex;
       gap: 100px;
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
 
       a {
         padding: 5px;
