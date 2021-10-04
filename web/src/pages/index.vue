@@ -9,7 +9,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.axios.get("/api/users").then((resp) => {
+      console.log(resp);
+    });
+  },
+};
 </script>
 
 <style lang="scss">
