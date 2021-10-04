@@ -4,10 +4,9 @@
       <router-link to="/" class="logo">MeetApp</router-link>
       <div>
         <nav>
-          <router-link to="/meetings-info">link</router-link>
-          <a href="#">link</a>
-          <a href="#">link</a>
-          <a href="#">link</a>
+          <router-link to="/">home</router-link>
+          <router-link to="/admin">admin</router-link>
+          <router-link to="/meetings-info">meetings-info</router-link>
         </nav>
         <!-- переключение через vuex - переменная "isSigniN" -->
         <div class="authorization">

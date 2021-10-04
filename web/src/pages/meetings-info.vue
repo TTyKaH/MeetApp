@@ -210,10 +210,6 @@ export default {};
           }
         }
 
-        hr {
-          margin: 10px 0 20px;
-        }
-
         .table-rows {
           display: grid;
           gap: 5px;

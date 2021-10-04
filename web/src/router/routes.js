@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import index from "@/pages/index.vue";
 import meetingsInfo from "@/pages/meetings-info.vue";
 import createMeet from "@/pages/create-meet.vue";
@@ -7,6 +7,8 @@ import editMeet from "@/pages/edit-meet.vue";
 import signIn from "@/pages/sign-in.vue";
 import signUp from "@/pages/sign-up.vue";
 import admin from "@/pages/admin/index.vue";
+import usersList from "@/pages/admin/users-list.vue";
+import meetsList from "@/pages/admin/meets-list.vue";
 
 const routes = [
   {
@@ -49,11 +51,20 @@ const routes = [
     name: "admin",
     component: admin,
   },
+  {
+    path: "/admin/users-list",
+    name: "usersList",
+    component: usersList,
+  },
+  {
+    path: "/admin/meets-list",
+    name: "meetsList",
+    component: meetsList,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  // mode: "history",
+  history: createWebHistory(),
   routes,
 });
 

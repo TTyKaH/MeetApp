@@ -6,18 +6,18 @@
         <hr />
         <!-- this felds like an action -->
         <div class="fields">
+          <router-link class="field" to="/admin/users-list">
+            <div class="field-property">Users count:</div>
+            <div class="field-value">some value</div>
+          </router-link>
           <a class="field">
             <div class="field-property">field:</div>
             <div class="field-value">some value</div>
           </a>
-          <a class="field">
-            <div class="field-property">field:</div>
+          <router-link class="field" to="/admin/meets-list">
+            <div class="field-property">Meets count:</div>
             <div class="field-value">some value</div>
-          </a>
-          <a class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </a>
+          </router-link>
           <a class="field">
             <div class="field-property">field:</div>
             <div class="field-value">some value</div>
@@ -108,10 +108,6 @@ export default {};
   }
 
   .menu {
-    hr {
-      margin: 10px 0 20px;
-    }
-
     .wrap > div {
       display: grid;
       gap: 20px;
