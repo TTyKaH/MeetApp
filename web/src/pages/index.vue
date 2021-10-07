@@ -1,8 +1,26 @@
 <template>
   <section>
     <div class="wrap wrap-px">
-      <div class="call-to-action">
+      <div class="filler span-3">
         Plan and choose a convenient time for the meeting!
+      </div>
+      <div class="filler">
+        In future this place will be contain have info filler
+      </div>
+      <div class="filler span-2">
+        In future this place will be contain have info filler
+      </div>
+      <div class="filler">
+        In future this place will be contain have info filler
+      </div>
+      <div class="filler span-2">
+        In future this place will be contain have info filler
+      </div>
+      <div class="filler">
+        In future this place will be contain have info filler
+      </div>
+      <div class="filler span-2">
+        In future this place will be contain have info filler
       </div>
     </div>
   </section>
@@ -10,17 +28,23 @@
 
 <script>
 export default {
-  created() {
-    this.axios.get("/api/users").then((resp) => {
-      console.log(resp);
-    });
-  },
+  // created() {
+  //   this.axios.get("/api/users").then((resp) => {
+  //     console.log(resp);
+  //   });
+  // },
 };
 </script>
 
 <style lang="scss">
 section {
-  .call-to-action {
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .filler {
     display: flex;
     justify-content: center;
     background-color: #f6f6f6;

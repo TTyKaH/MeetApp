@@ -4,19 +4,20 @@
       <!-- TODO: need components -->
       <form action="">
         <label>
-          Input name
-          <input type="text" />
+          Email:
+          <input v-model="fields.email" type="email" required />
         </label>
         <label>
-          Input name
-          <input type="text" />
+          Password
+          <input v-model="fields.password" type="password" required />
         </label>
         <label>
-          Input name
-          <input type="text" />
+          First Name:
+          <input v-model="fields.name" type="text" required />
         </label>
         <div class="action">
-          <button class="btn" type="submit">Sign-Up</button>
+          <button class="btn" @click="createUser()">Sign-Up</button>
+          <button class="btn" @click="show()">show users</button>
           <router-link class="btn" to="/sign-in">Sign-In</router-link>
         </div>
       </form>
@@ -25,7 +26,38 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      fields: {
+        email: "",
+        password: "",
+        name: "",
+      },
+    };
+  },
+  created() {
+    this.axios.get("/api/users").then((resp) => {
+      console.log("Users:", resp.data);
+    });
+  },
+  methods: {
+    createUser() {
+      const fields = { ...this.fields };
+      console.log("зашли в createUser");
+      return this.axios.post("/api/users", fields, {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      });
+    },
+    show() {
+      this.axios.get("/api/users").then((resp) => {
+        console.log("Users:", resp.data);
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

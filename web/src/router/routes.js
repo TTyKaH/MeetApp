@@ -1,40 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
-import index from "@/pages/index.vue";
-import meetingsInfo from "@/pages/meetings-info.vue";
-import createMeet from "@/pages/create-meet.vue";
-import editProfile from "@/pages/edit-profile.vue";
-import editMeet from "@/pages/edit-meet.vue";
-import signIn from "@/pages/sign-in.vue";
-import signUp from "@/pages/sign-up.vue";
+import home from "@/pages/index.vue";
 import admin from "@/pages/admin/index.vue";
 import usersList from "@/pages/admin/users-list.vue";
 import meetsList from "@/pages/admin/meets-list.vue";
+import user from "@/pages/user/index.vue";
+// import createMeet from "@/pages/create-meet.vue";
+// import editProfile from "@/pages/edit-profile.vue";
+// import editMeet from "@/pages/edit-meet.vue";
+import signIn from "@/pages/sign-in.vue";
+import signUp from "@/pages/sign-up.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: index,
-  },
-  {
-    path: "/meetings-info",
-    name: "meetingsInfo",
-    component: meetingsInfo,
-  },
-  {
-    path: "/create-meet",
-    name: "createMeet",
-    component: createMeet,
-  },
-  {
-    path: "/edit-meet",
-    name: "editMeet",
-    component: editMeet,
-  },
-  {
-    path: "/edit-profile",
-    name: "editProfile",
-    component: editProfile,
+    component: home,
   },
   {
     path: "/sign-in",
@@ -51,6 +31,7 @@ const routes = [
     name: "admin",
     component: admin,
   },
+  // Здесь должна быть вложенность для роутера?
   {
     path: "/admin/users-list",
     name: "usersList",
@@ -61,6 +42,27 @@ const routes = [
     name: "meetsList",
     component: meetsList,
   },
+  {
+    path: "/user",
+    name: "user",
+    component: user,
+  },
+  // all now are components
+  // {
+  //   path: "/create-meet",
+  //   name: "createMeet",
+  //   component: createMeet,
+  // },
+  // {
+  //   path: "/edit-meet",
+  //   name: "editMeet",
+  //   component: editMeet,
+  // },
+  // {
+  //   path: "/edit-profile",
+  //   name: "editProfile",
+  //   component: editProfile,
+  // },
 ];
 
 const router = createRouter({

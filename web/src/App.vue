@@ -7,12 +7,17 @@
       </div>
     </div>
     <Footer></Footer>
+    <!-- <ModalWindow>
+      <SignIn />
+    </ModalWindow> -->
   </div>
 </template>
 
 <script>
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+// import ModalWindow from "@/components/modal-window";
+// import SignIn from "@/components/sign-in";
 
 export default {
   components: { Header, Footer },

@@ -4,12 +4,12 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }
+  // if (!req.body.email) {
+  //   res.status(400).send({
+  //     message: "Content can not be empty!",
+  //   });
+  //   return;
+  // }
 
   // Create a user
   const user = {
@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     address: req.body.address,
   };
 
-  // Save Tutorial in the database
+  // Save User in the database
   User.create(user)
     .then((data) => {
       res.send(data);

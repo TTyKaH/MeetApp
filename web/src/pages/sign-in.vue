@@ -1,19 +1,19 @@
 <template>
   <div class="sign-in">
     <div class="wrap wrap-px wrap-py wrap-xs">
-      <!-- TODO: need components -->
       <form action="">
         <label>
-          Input name
+          Email:
           <input type="text" />
         </label>
         <label>
-          Input name
+          Password:
           <input type="text" />
         </label>
         <div class="action">
-          <button class="btn" type="submit">Sign-In</button>
-          <router-link class="btn" to="/sign-up">Sign-Up</router-link>
+          <button class="btn span-2" type="submit">Sign-In</button>
+          <button class="btn" type="submit">Sign-Up</button>
+          <button class="btn" type="submit">Close</button>
         </div>
       </form>
     </div>
@@ -41,9 +41,9 @@ export default {};
       }
 
       .action {
-        margin-top: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
         gap: 24px;
       }
     }

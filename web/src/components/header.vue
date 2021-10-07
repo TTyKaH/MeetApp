@@ -6,15 +6,15 @@
         <nav>
           <router-link to="/">home</router-link>
           <router-link to="/admin">admin</router-link>
-          <router-link to="/meetings-info">meetings-info</router-link>
+          <router-link to="/user">user</router-link>
         </nav>
         <!-- переключение через vuex - переменная "isSigniN" -->
         <div class="authorization">
           <div>
-            <router-link class="btn" to="/sign-in">Sign-in</router-link>
-            <router-link class="btn" to="/sign-up">Sign-up</router-link>
+            <router-link class="btn" to="/sign-in">Sign-In</router-link>
+            <router-link class="btn" to="/sign-up">Sign-Up</router-link>
           </div>
-          <router-link class="btn" to="/">Sign-out</router-link>
+          <router-link class="btn" to="/">Sign-Out</router-link>
         </div>
       </div>
     </div>
@@ -22,7 +22,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  components: {},
+};
 </script>
 
 <style lang="scss">
