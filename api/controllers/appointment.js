@@ -1,18 +1,9 @@
 const db = require("../models");
-const User = db.users;
+const Appointment = db.appointment;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  // Validate request
-  // if (!req.body.email) {
-  //   res.status(400).send({
-  //     message: "Content can not be empty!",
-  //   });
-  //   return;
-  // }
-
-  // Create a user
-  const user = {
+  const appointment = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     birthday: req.body.birthday,
@@ -26,40 +17,49 @@ exports.create = (req, res) => {
     address: req.body.address,
   };
 
-  // Save User in the database
-  User.create(user)
+  Appointment.create(appointment)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the User.",
+        message:
+          err.message || "Some error occurred while creating the Appointment.",
       });
     });
 };
 
 exports.findAll = (req, res) => {
-  const companyName = req.query.companyName;
-  const firstName = req.query.firstName;
-  const lastName = req.query.lastName;
+  const author = req.query.author;
+  const invited = req.query.invited;
+  const date = req.query.date;
+  const type = req.query.type;
+  const status = req.query.status;
   var condition = {};
-  if (companyName) {
-    condition.companyName = { [Op.iLike]: `%${companyName}%` };
+  if (author) {
+    condition.author = { [Op.iLike]: `%${author}%` };
   }
-  if (firstName) {
-    condition.firstName = { [Op.iLike]: `%${firstName}%` };
+  if (invited) {
+    condition.invited = { [Op.iLike]: `%${invited}%` };
   }
-  if (lastName) {
-    condition.lastName = { [Op.iLike]: `%${lastName}%` };
+  if (date) {
+    condition.date = { [Op.iLike]: `%${date}%` };
+  }
+  if (type) {
+    condition.type = { [Op.iLike]: `%${type}%` };
+  }
+  if (status) {
+    condition.status = { [Op.iLike]: `%${status}%` };
   }
 
-  User.findAll({ where: condition })
+  Appointment.findAll({ where: condition })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving users.",
+        message:
+          err.message || "Some error occurred while retrieving appointment.",
       });
     });
 };
@@ -67,19 +67,19 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  User.findByPk(id)
+  Appointment.findByPk(id)
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find User with id=${id}.`,
+          message: `Cannot find Appointment with id=${id}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving User with id=" + id,
+        message: "Error retrieving Appointment with id=" + id,
       });
     });
 };
@@ -87,23 +87,23 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  User.update(req.body, {
+  Appointment.update(req.body, {
     where: { id: id },
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "User was updated successfully.",
+          message: "Appointment was updated successfully.",
         });
       } else {
         res.send({
-          message: `Cannot update User with id=${id}. Maybe User was not found or req.body is empty!`,
+          message: `Cannot update Appointment with id=${id}. Maybe Appointment was not found or req.body is empty!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating User with id=" + id,
+        message: "Error updating Appointment with id=" + id,
       });
     });
 };
@@ -111,23 +111,23 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  User.destroy({
+  Appointment.destroy({
     where: { id: id },
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "User was deleted successfully!",
+          message: "Appointment was deleted successfully!",
         });
       } else {
         res.send({
-          message: `Cannot delete User with id=${id}. Maybe User was not found!`,
+          message: `Cannot delete Appointment with id=${id}. Maybe Appointment was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete User with id=" + id,
+        message: "Could not delete Appointment with id=" + id,
       });
     });
 };
