@@ -4,11 +4,11 @@
       <form action="">
         <label>
           Email:
-          <input type="text" />
+          <input v-model="fields.email" type="text" />
         </label>
         <label>
           Password:
-          <input type="text" />
+          <input v-model="fields.password" type="text" />
         </label>
         <div class="action">
           <button class="btn span-2" type="submit">Sign-In</button>
@@ -21,7 +21,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      fields: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    SignIn() {
+      return this.axios.get("/api/users/", (req, res, err) => {
+        
+      }).then((resp) => {
+        console.log(resp.data);
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss">
