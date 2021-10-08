@@ -1,15 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Appointment = sequelize.define("appointment", {
-    author: {
+    ownerID: {
       type: DataTypes.STRING,
     },
-    authorLink: {
-      type: DataTypes.STRING,
-    },
-    invited: {
-      type: DataTypes.STRING,
-    },
-    invitedLink: {
+    clientID: {
       type: DataTypes.STRING,
     },
     date: {
@@ -21,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     type: {
       type: DataTypes.STRING,
     },
-    meetPlace: {
+    location: {
       type: DataTypes.STRING,
     },
     status: {

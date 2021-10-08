@@ -31,13 +31,14 @@ export default {
     };
   },
   methods: {
-    SignIn() {
-      return this.axios.get("/api/users/", (req, res, err) => {
-        
-      }).then((resp) => {
-        console.log(resp.data);
-      });
-    },
+    // SignIn() {
+    //   const authData = { ...this.fields };
+    //   return this.axios
+    //     .get("/api/users/", (req, res, err) => {})
+    //     .then((resp) => {
+    //       console.log(resp.data);
+    //     });
+    // },
   },
 };
 </script>

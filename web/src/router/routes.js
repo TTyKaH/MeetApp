@@ -4,7 +4,7 @@ import admin from "@/pages/admin/index.vue";
 import usersList from "@/pages/admin/users-list.vue";
 import meetsList from "@/pages/admin/meets-list.vue";
 import user from "@/pages/user/index.vue";
-// import createMeet from "@/pages/create-meet.vue";
+import createMeet from "@/pages/create-meet.vue";
 // import editProfile from "@/pages/edit-profile.vue";
 // import editMeet from "@/pages/edit-meet.vue";
 import signIn from "@/pages/sign-in.vue";
@@ -47,12 +47,12 @@ const routes = [
     name: "user",
     component: user,
   },
+  {
+    path: "/create-meet",
+    name: "createMeet",
+    component: createMeet,
+  },
   // all now are components
-  // {
-  //   path: "/create-meet",
-  //   name: "createMeet",
-  //   component: createMeet,
-  // },
   // {
   //   path: "/edit-meet",
   //   name: "editMeet",

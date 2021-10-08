@@ -13,10 +13,10 @@
         </label>
         <label>
           First Name:
-          <input v-model="fields.name" type="text" required />
+          <input v-model="fields.firstName" type="text" required />
         </label>
         <div class="action">
-          <button class="btn" @click="createUser()">Sign-Up</button>
+          <button class="btn" @click="SignUp()">Sign-Up</button>
           <button class="btn" @click="show()">show users</button>
           <router-link class="btn" to="/sign-in">Sign-In</router-link>
         </div>
@@ -32,7 +32,7 @@ export default {
       fields: {
         email: "",
         password: "",
-        name: "",
+        firstName: "",
       },
     };
   },
@@ -42,15 +42,44 @@ export default {
     });
   },
   methods: {
-    createUser() {
+    SignUp() {
       const fields = { ...this.fields };
-      console.log("зашли в createUser");
-      return this.axios.post("/api/users", fields, {
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      });
+      // Это плохое решение для валидации (рользователь может найти данные других пользователей)
+      // this.axios.get("/api/users").then((resp) => {
+      //   resp.data.forEach((element) => {
+      //     if (fields.email === element.email) {
+      //       return console.log("This email is already taken!");
+      //     }
+      //   });
+      // });
+      return (
+        this.axios
+          .post("/api/users", fields, {
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            },
+          })
+          // TODO: Не удается вывести кастомное сообщение ошибки
+          .catch((error) => {
+            if (error.response) {
+              console.log("error", error);
+              console.log("error.response", error.response);
+              // console.log("error.response.status", error.response.status);
+              // console.log("error.response.data", error.response.data);
+              // console.log("error.response.headers", error.response.headers);
+            } else if (error.request) {
+              // console.log("error.request", error.request);
+            } else {
+              // console.log("Error", error.message);
+            }
+            // console.log("error config", error.config);
+          })
+      );
     },
+    SignIn() {
+      return this.axios.get("/api/users/");
+    },
+    // function for testing
     show() {
       this.axios.get("/api/users").then((resp) => {
         console.log("Users:", resp.data);
