@@ -4,17 +4,14 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   const appointment = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    birthday: req.body.birthday,
-    role: req.body.role,
-    email: req.body.email,
-    password: req.body.password,
-    phone: req.body.phone,
-    companyName: req.body.companyName,
-    country: req.body.country,
-    city: req.body.city,
-    address: req.body.address,
+    ownerID: req.body.ownerID,
+    clientID: req.body.clientID,
+    date: req.body.date,
+    duration: req.body.duration,
+    type: req.body.type,
+    location: req.body.location,
+    status: req.body.status,
+    description: req.body.description,
   };
 
   Appointment.create(appointment)
@@ -30,17 +27,17 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const author = req.query.author;
-  const invited = req.query.invited;
+  const ownerID = req.query.ownerID;
+  const clientID = req.query.clientID;
   const date = req.query.date;
   const type = req.query.type;
   const status = req.query.status;
   var condition = {};
-  if (author) {
-    condition.author = { [Op.iLike]: `%${author}%` };
+  if (ownerID) {
+    condition.ownerID = { [Op.iLike]: `%${ownerID}%` };
   }
-  if (invited) {
-    condition.invited = { [Op.iLike]: `%${invited}%` };
+  if (clientID) {
+    condition.clientID = { [Op.iLike]: `%${clientID}%` };
   }
   if (date) {
     condition.date = { [Op.iLike]: `%${date}%` };

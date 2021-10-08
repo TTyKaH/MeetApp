@@ -4,34 +4,13 @@
       <form action="">
         <label>
           Who do you want to meet? (write ID)
-          <input v-model="clientID" type="text" />
+          <input v-model="fields.clientID" type="text" />
         </label>
         <label>
           Describe the reason for your meeting!
-          <textarea v-model="description" rows="4" type="text" />
+          <textarea v-model="fields.description" rows="4" type="text" />
         </label>
-        <div class="calendar">
-          Calendar
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <v-date-picker v-model="fields.date" />
         <div class="action">
           <button class="btn" type="submit" @click="createMeet()">
             Create meet
@@ -49,12 +28,38 @@ export default {
       fields: {
         clientID: "",
         description: "",
+        date: null,
       },
     };
   },
+  created() {
+    this.axios.get("/api/appointment").then((resp) => {
+      console.log("appointments:", resp.data);
+    });
+  },
   methods: {
     createMeet() {
-      return true;
+      const fields = { ...fields };
+      return this.axios
+        .post("/api/appointment/", fields, {
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+          },
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log("error", error);
+            console.log("error.response", error.response);
+            // console.log("error.response.status", error.response.status);
+            // console.log("error.response.data", error.response.data);
+            // console.log("error.response.headers", error.response.headers);
+          } else if (error.request) {
+            // console.log("error.request", error.request);
+          } else {
+            // console.log("Error", error.message);
+          }
+          // console.log("error config", error.config);
+        });
     },
   },
 };
