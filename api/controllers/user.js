@@ -4,12 +4,13 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   // Validate request
-  // if (!req.body.email) {
+  // if (!req.body.email || !req.body.password || !req.body.firstName) {
   //   res.status(400).send({
   //     message: "Content can not be empty!",
   //   });
   //   return;
   // }
+  
 
   // Create a user
   const user = {
