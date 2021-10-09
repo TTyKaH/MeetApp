@@ -31,7 +31,7 @@ export default {
       fields: {
         clientID: "",
         description: "",
-        date: null,
+        date: "",
       },
     };
   },
