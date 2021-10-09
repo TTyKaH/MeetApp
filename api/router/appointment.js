@@ -9,5 +9,5 @@ module.exports = (app) => {
   router.put("/:id", appointment.update);
   router.delete("/:id", appointment.delete);
 
-  app.use("/api/appointment", router);
+  app.use("/api/appointments", router);
 };

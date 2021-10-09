@@ -3,31 +3,77 @@
     <section class="user">
       <div class="wrap wrap-px wrap-py">
         <div class="user-head">
-          <div class="user-id">user id</div>
+          <div class="user-id">User ID: {{ userData.id }}</div>
           <div class="actions">
-            <a class="btn" href="#">Edit profile</a>
+            <router-link class="btn" to="/edit-profile"
+              >Edit profile</router-link
+            >
           </div>
         </div>
-        <div class="user-data">
-          <div class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
+        <div class="fields">
+          <div>
+            <div class="field">
+              <div class="field-property">First Name:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.firstName || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Last Name:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.lastName || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Birthday:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.birthday || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Email:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.email || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Phone:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.phone || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Role:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.role || "N/A" }}</div>
+            </div>
           </div>
-          <div class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </div>
-          <div class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </div>
-          <div class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </div>
-          <div class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
+          <div>
+            <div class="field">
+              <div class="field-property">Country:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.country || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">City:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.city || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Adress:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.adress || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Company Name:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.companyName || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Created:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.createdAt || "N/A" }}</div>
+            </div>
+            <div class="field">
+              <div class="field-property">Last Updated:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.updatedAt || "N/A" }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -42,95 +88,19 @@
         </div>
         <div class="meetings-table">
           <div class="table-head">
-            <div class="date">Date</div>
-            <div class="desc">Description</div>
-            <div class="status">Status</div>
-            <div class="action">Action</div>
+            <div class="span-1">Date</div>
+            <div class="span-9">Description</div>
+            <div class="span-1">Status</div>
+            <div class="span-1">Action</div>
           </div>
           <hr />
+          <!-- TODO: Create page for more info about meet -->
+          <!-- TODO: Create global css for tables -->
           <div class="table-rows">
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-            </div>
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-            </div>
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-            </div>
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-            </div>
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-            </div>
-            <div class="row">
-              <div class="date">a/a/a time</div>
-              <div class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-              <div class="status">Status</div>
+            <div v-for="meet in meetings" :key="meet.id" class="row">
+              <div class="date">{{ meet.date }}</div>
+              <div class="desc">{{ meet.description }}</div>
+              <div class="status">{{ meet.status }}</div>
               <router-link class="btn" to="/edit-meet">Edit meet</router-link>
             </div>
           </div>
@@ -141,7 +111,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      userId: 1,
+      userData: {},
+      meetings: [],
+    };
+  },
+  created() {
+    // this.axios.get(`/api/users/${this.userId}`).then((resp) => {
+    //   console.log(resp);
+    // });
+    this.axios.get(`/api/users/${this.userId}`).then((resp) => {
+      return (this.userData = resp.data);
+    });
+    this.axios.get("/api/appointments/").then((resp) => {
+      return (this.meetings = resp.data);
+    });
+  },
+  methods: {
+    // Сюда подставляется id пользователя из vuex, которое доступно после авторизации
+    // или сразу делать это в криэйтед с использованием id текущего пользователя
+    getUserData(id) {
+      this.axios.get(`/api/users/${id}`);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -156,6 +152,7 @@ export default {};
       .user-head {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 24px;
 
         a {
@@ -163,12 +160,33 @@ export default {};
         }
       }
 
-      .user-data {
+      .fields {
         display: grid;
-        gap: 5px;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
 
-        .field {
-          display: flex;
+        > div {
+          display: grid;
+          gap: 10px;
+
+          .field {
+            display: flex;
+            justify-content: space-between;
+
+            .field-property,
+            .field-value {
+              white-space: nowrap;
+            }
+
+            .table-line {
+              background-color: #000;
+              width: 100%;
+              height: 1px;
+              align-self: flex-end;
+              margin: 0 5px 4px 5px;
+              opacity: 0.25;
+            }
+          }
         }
       }
     }
@@ -195,19 +213,6 @@ export default {};
           display: grid;
           grid-template-columns: repeat(12, 1fr);
           justify-items: center;
-
-          .date {
-            grid-column: span 1;
-          }
-          .desc {
-            grid-column: span 9;
-          }
-          .status {
-            grid-column: span 1;
-          }
-          .action {
-            grid-column: span 1;
-          }
         }
 
         .table-rows {
@@ -221,10 +226,12 @@ export default {};
             .date {
               grid-column: span 1;
               place-self: center;
+              white-space: nowrap;
             }
             .desc {
               grid-column: span 9;
               padding: 0 40px;
+              word-wrap: break-word;
             }
             .status {
               grid-column: span 1;

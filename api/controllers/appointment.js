@@ -1,5 +1,5 @@
 const db = require("../models");
-const Appointment = db.appointment;
+const Appointment = db.appointments;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {

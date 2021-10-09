@@ -10,7 +10,10 @@
           Describe the reason for your meeting!
           <textarea v-model="fields.description" rows="4" type="text" />
         </label>
-        <v-date-picker v-model="fields.date" />
+        <div class="calendar">
+          Choose date!
+          <v-date-picker v-model="fields.date" />
+        </div>
         <div class="action">
           <button class="btn" type="submit" @click="createMeet()">
             Create meet
@@ -33,15 +36,15 @@ export default {
     };
   },
   created() {
-    this.axios.get("/api/appointment").then((resp) => {
+    this.axios.get("/api/appointments").then((resp) => {
       console.log("appointments:", resp.data);
     });
   },
   methods: {
     createMeet() {
-      const fields = { ...fields };
+      const fields = { ...this.fields };
       return this.axios
-        .post("/api/appointment/", fields, {
+        .post("/api/appointments/", fields, {
           headers: {
             "Content-Type": "application/json; charset=utf-8",
           },
@@ -83,26 +86,14 @@ export default {
       }
 
       .calendar {
-        align-self: flex-start;
-        margin-top: 10px;
-
-        > div {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 5px;
-
-          > div {
-            width: 25px;
-            height: 25px;
-            background-color: #fff;
-          }
-        }
+        display: grid;
+        gap: 10px;
       }
 
       .action {
         margin-top: 20px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 24px;
       }
     }

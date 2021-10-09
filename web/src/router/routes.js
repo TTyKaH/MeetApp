@@ -5,8 +5,8 @@ import usersList from "@/pages/admin/users-list.vue";
 import meetsList from "@/pages/admin/meets-list.vue";
 import user from "@/pages/user/index.vue";
 import createMeet from "@/pages/create-meet.vue";
-// import editProfile from "@/pages/edit-profile.vue";
-// import editMeet from "@/pages/edit-meet.vue";
+import editProfile from "@/pages/edit-profile.vue";
+import editMeet from "@/pages/edit-meet.vue";
 import signIn from "@/pages/sign-in.vue";
 import signUp from "@/pages/sign-up.vue";
 
@@ -52,17 +52,16 @@ const routes = [
     name: "createMeet",
     component: createMeet,
   },
-  // all now are components
-  // {
-  //   path: "/edit-meet",
-  //   name: "editMeet",
-  //   component: editMeet,
-  // },
-  // {
-  //   path: "/edit-profile",
-  //   name: "editProfile",
-  //   component: editProfile,
-  // },
+  {
+    path: "/edit-meet",
+    name: "editMeet",
+    component: editMeet,
+  },
+  {
+    path: "/edit-profile",
+    name: "editProfile",
+    component: editProfile,
+  },
 ];
 
 const router = createRouter({
