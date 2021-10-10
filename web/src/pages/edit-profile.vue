@@ -1,6 +1,6 @@
 <template>
   <div class="edit-profile">
-    <div class="wrap wrap-px wrap-py">
+    <div class="wrap wrap-px wrap-py wrap-xs">
       <form action="">
         <label>
           First Name:
@@ -8,26 +8,38 @@
         </label>
         <label>
           Last Name:
-          <textarea v-model="fields.lastName" rows="4" type="text" />
+          <input v-model="fields.lastName" type="text" />
         </label>
         <label>
           Birthday:
-          <textarea v-model="fields.lastName" rows="4" type="text" />
+          <input v-model="fields.birthday" type="text" />
         </label>
         <label>
           Email:
-          <textarea v-model="fields.lastName" rows="4" type="text" />
+          <input v-model="fields.email" type="text" />
         </label>
         <label>
           Phone:
-          <textarea v-model="fields.lastName" rows="4" type="text" />
+          <input v-model="fields.phone" type="text" />
         </label>
         <label>
           Company Name (if you have):
-          <textarea v-model="fields.lastName" rows="4" type="text" />
+          <input v-model="fields.companyName" type="text" />
+        </label>
+        <label>
+          Country:
+          <input v-model="fields.country" type="text" />
+        </label>
+        <label>
+          City:
+          <input v-model="fields.city" type="text" />
+        </label>
+        <label>
+          Address
+          <input v-model="fields.address" type="text" />
         </label>
         <div class="action">
-          <button class="btn" type="submit">Update Meet</button>
+          <button class="btn" @click="updateUser()">Update Meet</button>
         </div>
       </form>
     </div>
@@ -38,11 +50,38 @@
 export default {
   data() {
     return {
+      id: 1, // user id
       fields: {
         firstName: "",
         lastName: "",
+        birthday: "",
+        email: "",
+        phone: "",
+        companyName: "",
+        country: "",
+        city: "",
+        address: "",
       },
     };
+  },
+  created() {
+    this.axios.get(`/api/users/${this.id}`).then((resp) => {
+      this.fields.firstName = resp.data.firstName;
+      this.fields.lastName = resp.data.lastName;
+      this.fields.birthday = resp.data.birthday;
+      this.fields.email = resp.data.email;
+      this.fields.phone = resp.data.phone;
+      this.fields.companyName = resp.data.companyName;
+      this.fields.country = resp.data.country;
+      this.fields.city = resp.data.city;
+      this.fields.address = resp.data.address;
+    });
+  },
+  methods: {
+    updateUser() {
+      const fields = { id: this.id, ...this.fields };
+      this.axios.put(`/api/users/${this.id}`, fields);
+    },
   },
 };
 </script>

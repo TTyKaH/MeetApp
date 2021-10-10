@@ -57,7 +57,7 @@
             <div class="field">
               <div class="field-property">Adress:</div>
               <div class="table-line"></div>
-              <div class="field-value">{{ userData.adress || "N/A" }}</div>
+              <div class="field-value">{{ userData.address || "N/A" }}</div>
             </div>
             <div class="field">
               <div class="field-property">Company Name:</div>
