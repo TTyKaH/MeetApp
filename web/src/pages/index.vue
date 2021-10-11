@@ -4,24 +4,7 @@
       <div class="filler span-3">
         Plan and choose a convenient time for the meeting!
       </div>
-      <div class="filler">
-        In future this place will be contain have info filler
-      </div>
-      <div class="filler span-2">
-        In future this place will be contain have info filler
-      </div>
-      <div class="filler">
-        In future this place will be contain have info filler
-      </div>
-      <div class="filler span-2">
-        In future this place will be contain have info filler
-      </div>
-      <div class="filler">
-        In future this place will be contain have info filler
-      </div>
-      <div class="filler span-2">
-        In future this place will be contain have info filler
-      </div>
+      <div class="filler span-3">For starting login or register!</div>
     </div>
   </section>
 </template>
@@ -38,22 +21,20 @@ export default {
 
 <style lang="scss">
 .homepage {
-  section {
-    .wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-    }
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
 
-    .filler {
-      display: flex;
-      justify-content: center;
-      background-color: #f6f6f6;
-      box-shadow: 0 2px 10px 1px #d8d8d8;
-      font-size: 24px;
-      padding: 25px 10px;
-      border-radius: 3px;
-    }
+  .filler {
+    display: flex;
+    justify-content: center;
+    background-color: #f6f6f6;
+    box-shadow: 0 2px 10px 1px #d8d8d8;
+    font-size: 24px;
+    padding: 25px 10px;
+    border-radius: 3px;
   }
 }
 </style>

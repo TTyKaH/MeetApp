@@ -86,7 +86,7 @@
             <router-link class="btn" to="/create-meet">Create meet</router-link>
           </div>
         </div>
-        <div class="meetings-table">
+        <div class="table">
           <div class="table-head">
             <div class="span-1">Date</div>
             <div class="span-9">Description</div>
@@ -208,7 +208,7 @@ export default {
         }
       }
 
-      .meetings-table {
+      .table {
         .table-head {
           display: grid;
           grid-template-columns: repeat(12, 1fr);

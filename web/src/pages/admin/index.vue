@@ -8,18 +8,28 @@
         <div class="fields">
           <div>
             <router-link class="field" to="/admin/users-list">
+              <div class="field-property">Admins count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
               <div class="field-property">Users count:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ users.length }}</div>
             </router-link>
             <router-link class="field" to="/admin/users-list">
-              <div class="field-property">Admins count:</div>
+              <div class="field-property">Organizations count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
+              <div class="field-property">Banned:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ users.length }}</div>
             </router-link>
           </div>
           <div>
-            <router-link class="field" to="/admin/users-list">
+            <router-link class="field" to="/admin/meets-list">
               <div class="field-property">Meets count:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ meetings.length }}</div>

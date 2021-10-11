@@ -47,6 +47,7 @@ const routes = [
     name: "user",
     component: user,
   },
+  // создать дубликаты этих роутов для админа и для пользователя отдельно?
   {
     path: "/create-meet",
     name: "createMeet",
