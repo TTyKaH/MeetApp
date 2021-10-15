@@ -5,101 +5,32 @@
       <div class="meetings-action">
         Meetings
         <div>
-          <router-link class="btn" to="/create-meet">Create meet</router-link>
+          <router-link class="btn" to="/admin/create-meet"
+            >Create meet</router-link
+          >
         </div>
       </div>
       <div class="meetings-table">
         <div class="table-head">
-          <div class="date">Date</div>
-          <div class="desc">Description</div>
-          <div class="status">Status</div>
-          <div class="action">Action</div>
+          <div class="span-3">Date</div>
+          <div class="span-6">Description</div>
+          <div class="span-1">Status</div>
+          <div class="span-2">Action</div>
         </div>
         <hr />
         <div class="table-rows">
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div v-for="(meet, idx) in meetings" :key="idx" class="row">
+            <div class="span-3">{{ meet.date }}</div>
+            <div class="span-6">
+              {{ meet.description }}
             </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-          </div>
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div class="span-1">{{ meet.status }}</div>
+            <div class="span-2 actions">
+              <router-link class="btn" to="/admin/edit-meet"
+                >Edit meet</router-link
+              >
+              <button class="btn">Delete</button>
             </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-          </div>
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-          </div>
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-          </div>
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
-          </div>
-          <div class="row">
-            <div class="date">a/a/a time</div>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div class="status">Status</div>
-            <router-link class="btn" to="/edit-meet">Edit meet</router-link>
           </div>
         </div>
       </div>
@@ -108,7 +39,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      meetings: [],
+    };
+  },
+  created() {
+    this.axios.get("/api/appointments/").then((resp) => {
+      return (this.meetings = resp.data);
+    });
+  },
+};
 </script>
 
 <style lang="scss">
@@ -132,46 +74,25 @@ export default {};
   .meetings-table {
     .table-head {
       display: grid;
+      gap: 10px;
       grid-template-columns: repeat(12, 1fr);
-      justify-items: center;
-
-      .date {
-        grid-column: span 1;
-      }
-      .desc {
-        grid-column: span 9;
-      }
-      .status {
-        grid-column: span 1;
-      }
-      .action {
-        grid-column: span 1;
-      }
     }
 
     .table-rows {
       display: grid;
-      gap: 5px;
+      gap: 20px;
 
       .row {
         display: grid;
+        gap: 10px;
         grid-template-columns: repeat(12, 1fr);
+        word-break: break-all;
 
-        .date {
-          grid-column: span 1;
-          place-self: center;
-        }
-        .desc {
-          grid-column: span 9;
-          padding: 0 40px;
-        }
-        .status {
-          grid-column: span 1;
-          place-self: center;
-        }
-        .btn {
-          grid-column: span 1;
-          place-self: center;
+        .actions {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          align-items: start;
+          gap: 20px;
         }
       }
     }

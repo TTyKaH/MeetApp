@@ -1,5 +1,5 @@
 <template>
-  <div class="create-meet">
+  <div class="edit-meet">
     <div class="wrap wrap-px wrap-py wrap-xs">
       <form action="">
         <label>
@@ -15,8 +15,8 @@
           <v-date-picker v-model="fields.date" />
         </div>
         <div class="action">
-          <button class="btn" type="submit" @click="createMeet()">
-            Create meet
+          <button class="btn" type="submit" @click="updateMeet()">
+            Update Meet
           </button>
         </div>
       </form>
@@ -28,6 +28,7 @@
 export default {
   data() {
     return {
+      id: 1, // meet id
       fields: {
         clientID: "",
         description: "",
@@ -36,40 +37,23 @@ export default {
     };
   },
   created() {
-    this.axios.get("/api/appointments").then((resp) => {
-      console.log("appointments:", resp.data);
+    this.axios.get(`/api/appointments/${this.id}`).then((resp) => {
+      this.fields.clientID = resp.data.clientID;
+      this.fields.description = resp.data.description;
+      this.fields.date = resp.data.date;
     });
   },
   methods: {
-    createMeet() {
-      const fields = { ...this.fields };
-      return this.axios
-        .post("/api/appointments/", fields, {
-          headers: {
-            "Content-Type": "application/json; charset=utf-8",
-          },
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log("error", error);
-            console.log("error.response", error.response);
-            // console.log("error.response.status", error.response.status);
-            // console.log("error.response.data", error.response.data);
-            // console.log("error.response.headers", error.response.headers);
-          } else if (error.request) {
-            // console.log("error.request", error.request);
-          } else {
-            // console.log("Error", error.message);
-          }
-          // console.log("error config", error.config);
-        });
+    updateMeet() {
+      const fields = { id: this.id, ...this.fields };
+      this.axios.put(`/api/appointments/${this.id}`, fields);
     },
   },
 };
 </script>
 
 <style lang="scss">
-.create-meet {
+.edit-meet {
   .wrap {
     background-color: #f6f6f6;
     display: flex;

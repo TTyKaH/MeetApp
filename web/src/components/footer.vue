@@ -3,10 +3,10 @@
     <div class="wrap">
       <router-link to="/" class="logo">MeetApp</router-link>
       <div>
+        <!-- <a href="#">link</a>
         <a href="#">link</a>
         <a href="#">link</a>
-        <a href="#">link</a>
-        <a href="#">link</a>
+        <a href="#">link</a> -->
       </div>
     </div>
   </footer>

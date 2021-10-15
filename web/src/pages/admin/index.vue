@@ -6,63 +6,99 @@
         <hr />
         <!-- this felds like an action -->
         <div class="fields">
-          <router-link class="field" to="/admin/users-list">
-            <div class="field-property">Users count:</div>
-            <div class="field-value">some value</div>
-          </router-link>
-          <a class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </a>
-          <router-link class="field" to="/admin/meets-list">
-            <div class="field-property">Meets count:</div>
-            <div class="field-value">some value</div>
-          </router-link>
-          <a class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </a>
-          <a class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </a>
-          <a class="field">
-            <div class="field-property">field:</div>
-            <div class="field-value">some value</div>
-          </a>
+          <div>
+            <router-link class="field" to="/admin/users-list">
+              <div class="field-property">Admins count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
+              <div class="field-property">All Users count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
+              <div class="field-property">Users count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
+              <div class="field-property">Organizations count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+          </div>
+          <div>
+            <router-link class="field" to="/admin/meets-list">
+              <div class="field-property">Meets count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ meetings.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/meets-list">
+              <div class="field-property">Active Meets:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ meetings.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/meets-list">
+              <div class="field-property">On Approval:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ meetings.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/meets-list">
+              <div class="field-property">Closed Meets:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ meetings.length }}</div>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
     <div class="menu">
       <div class="wrap wrap-px wrap-py">
-        Menu:
+        Go to specific lists: (lead to lists with specific sort)
         <hr />
         <div>
           <div class="actions-group">
-            actions group name
+            Users:
             <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
+              <router-link to="/admin/users-list" class="btn"
+                >All Users</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Consumers</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Organizations</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Admins</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Banned</router-link
+              >
             </div>
           </div>
           <div class="actions-group">
-            actions group name
+            Meets:
             <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-            </div>
-          </div>
-          <div class="actions-group">
-            actions group name
-            <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
+              <router-link to="/admin/meets-list" class="btn"
+                >All Meets</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Created by Consumers</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Created by Organizations</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Active</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets on Approval</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Closed</router-link
+              >
             </div>
           </div>
         </div>
@@ -72,7 +108,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      users: {},
+      meetings: [],
+    };
+  },
+  created() {
+    this.axios.get(`/api/users/`).then((resp) => {
+      return (this.users = resp.data);
+    });
+    this.axios.get("/api/appointments/").then((resp) => {
+      return (this.meetings = resp.data);
+    });
+  },
+};
 </script>
 
 <style lang="scss">
@@ -97,12 +148,22 @@ export default {};
 
     .fields {
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      white-space: nowrap;
 
       .field {
         display: flex;
         gap: 10px;
+      }
+
+      .table-line {
+        background-color: #000;
+        width: 100%;
+        height: 1px;
+        align-self: flex-end;
+        margin: 0 5px 4px 5px;
+        opacity: 0.25;
       }
     }
   }
