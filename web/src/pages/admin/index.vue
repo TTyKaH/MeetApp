@@ -13,17 +13,17 @@
               <div class="field-value">{{ users.length }}</div>
             </router-link>
             <router-link class="field" to="/admin/users-list">
+              <div class="field-property">All Users count:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ users.length }}</div>
+            </router-link>
+            <router-link class="field" to="/admin/users-list">
               <div class="field-property">Users count:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ users.length }}</div>
             </router-link>
             <router-link class="field" to="/admin/users-list">
               <div class="field-property">Organizations count:</div>
-              <div class="table-line"></div>
-              <div class="field-value">{{ users.length }}</div>
-            </router-link>
-            <router-link class="field" to="/admin/users-list">
-              <div class="field-property">Banned:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ users.length }}</div>
             </router-link>
@@ -55,34 +55,50 @@
     </div>
     <div class="menu">
       <div class="wrap wrap-px wrap-py">
-        Menu:
+        Go to specific lists: (lead to lists with specific sort)
         <hr />
         <div>
           <div class="actions-group">
-            actions group name
+            Users:
             <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
+              <router-link to="/admin/users-list" class="btn"
+                >All Users</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Consumers</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Organizations</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Admins</router-link
+              >
+              <router-link to="/admin/users-list" class="btn"
+                >Users Banned</router-link
+              >
             </div>
           </div>
           <div class="actions-group">
-            actions group name
+            Meets:
             <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-            </div>
-          </div>
-          <div class="actions-group">
-            actions group name
-            <div>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
-              <a class="action btn">action</a>
+              <router-link to="/admin/meets-list" class="btn"
+                >All Meets</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Created by Consumers</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Created by Organizations</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Active</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets on Approval</router-link
+              >
+              <router-link to="/admin/meets-list" class="btn"
+                >Meets Closed</router-link
+              >
             </div>
           </div>
         </div>

@@ -7,9 +7,6 @@ export default createStore({
       type: Boolean,
       default: false,
     },
-    modalsStatus: {
-      signIn: false,
-    },
   },
   mutations: {
     setUser(state, user, role) {

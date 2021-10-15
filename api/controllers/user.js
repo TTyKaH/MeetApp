@@ -10,7 +10,6 @@ exports.create = (req, res) => {
   //   });
   //   return;
   // }
-  
 
   // Create a user
   const user = {
@@ -28,15 +27,18 @@ exports.create = (req, res) => {
   };
 
   // Save User in the database
-  User.create(user)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while creating the User.",
-      });
-    });
+  console.log("1", res);
+  res.send({ message: "Some error occurred while creating the User." });
+  console.log("2", res);
+  // User.create(user)
+  //   .then((data) => {
+  //     console.log("Create user:", data);
+  //     res.send(data);
+  //   })
+  //   .catch((err) => {
+  //     // console.log(err.errors[0]);
+  //     res.status(500).send("Some error occurred while creating the User.");
+  //   });
 };
 
 exports.findAll = (req, res) => {
@@ -131,4 +133,11 @@ exports.delete = (req, res) => {
         message: "Could not delete User with id=" + id,
       });
     });
+};
+
+exports.login = (req, res, next) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  User.get();
 };
