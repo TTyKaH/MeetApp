@@ -2,9 +2,11 @@
   <div class="users-list">
     <div class="wrap wrap-px wrap-py">
       <div class="table">
+        <div class="table-name">Users list:</div>
         <!-- TODO: table head will be use sorter component -->
+        <hr />
         <div class="table-head">
-          <div class="span-1">ID</div>
+          <div class="span-1 active-element">ID</div>
           <div class="span-2">First Name</div>
           <div class="span-2">Second Name</div>
           <div class="span-3">Email</div>

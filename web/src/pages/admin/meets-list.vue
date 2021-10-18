@@ -3,13 +3,14 @@
     <div class="wrap wrap-px wrap-py">
       <!-- need more tools and columns -->
       <div class="meetings-action">
-        Meetings
+        <div class="table-name">Meetings list:</div>
         <div>
           <router-link class="btn" to="/admin/create-meet"
             >Create meet</router-link
           >
         </div>
       </div>
+      <hr />
       <div class="meetings-table">
         <div class="table-head">
           <div class="span-3">Date</div>
@@ -64,7 +65,6 @@ export default {
   .meetings-action {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
 
     a {
       padding: 5px;

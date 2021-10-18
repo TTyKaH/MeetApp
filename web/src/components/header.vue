@@ -5,8 +5,14 @@
       <div>
         <nav>
           <router-link to="/">home</router-link>
+          <!-- v-if -->
           <router-link to="/admin">admin</router-link>
+          <router-link to="/admin">user's list</router-link>
+          <router-link to="/admin">meet's list</router-link>
+          <!-- v-if -->
           <router-link to="/user">user</router-link>
+          <router-link to="/user">create meet</router-link>
+          <router-link to="/user">edit profile</router-link>
         </nav>
         <!-- переключение через vuex - переменная "isSigniN" -->
         <div class="authorization">

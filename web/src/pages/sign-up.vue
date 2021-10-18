@@ -36,14 +36,14 @@ export default {
       },
     };
   },
-  created() {
-    this.axios.get("/api/users").then((resp) => {
-      console.log("Users:", resp.data);
-    });
-  },
+  // created() {
+  //   this.axios.get("/api/users").then((resp) => {
+  //     console.log("Users:", resp.data);
+  //   });
+  // },
   methods: {
     SignUp() {
-      const fields = { ...this.fields };
+      // const fields = { ...this.fields };
       // Это плохое решение для валидации (рользователь может найти данные других пользователей)
       // this.axios.get("/api/users").then((resp) => {
       //   resp.data.forEach((element) => {
@@ -54,11 +54,12 @@ export default {
       // });
       return (
         this.axios
-          .post("/api/users", fields, {
-            headers: {
-              "Content-Type": "application/json; charset=utf-8",
-            },
-          })
+          // .post("/api/users", {
+          //   email: "coolhosta01@gmail.com",
+          //   password: 1231,
+          //   firstName: "eqweqweqweqweqw",
+          // })
+          .post("/api/users", { data: this.fields })
           // TODO: Не удается вывести кастомное сообщение ошибки
           .catch((error) => {
             if (error.response) {
@@ -76,15 +77,15 @@ export default {
           })
       );
     },
-    SignIn() {
-      return this.axios.get("/api/users/");
-    },
+    // SignIn() {
+    //   return this.axios.get("/api/users/");
+    // },
     // function for testing
-    show() {
-      this.axios.get("/api/users").then((resp) => {
-        console.log("Users:", resp.data);
-      });
-    },
+    // show() {
+    //   this.axios.get("/api/users").then((resp) => {
+    //     console.log("Users:", resp.data);
+    //   });
+    // },
   },
 };
 </script>

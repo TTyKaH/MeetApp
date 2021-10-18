@@ -3,15 +3,21 @@
     <section class="user">
       <div class="wrap wrap-px wrap-py">
         <div class="user-head">
-          <div class="user-id">User ID: {{ userData.id }}</div>
+          <div class="table-name">User's profile data:</div>
           <div class="actions">
             <router-link class="btn" to="/edit-profile"
               >Edit profile</router-link
             >
           </div>
         </div>
+        <hr />
         <div class="fields">
           <div>
+            <div class="field">
+              <div class="field-property">ID:</div>
+              <div class="table-line"></div>
+              <div class="field-value">{{ userData.id || "N/A" }}</div>
+            </div>
             <div class="field">
               <div class="field-property">First Name:</div>
               <div class="table-line"></div>
@@ -21,11 +27,6 @@
               <div class="field-property">Last Name:</div>
               <div class="table-line"></div>
               <div class="field-value">{{ userData.lastName || "N/A" }}</div>
-            </div>
-            <div class="field">
-              <div class="field-property">Birthday:</div>
-              <div class="table-line"></div>
-              <div class="field-value">{{ userData.birthday || "N/A" }}</div>
             </div>
             <div class="field">
               <div class="field-property">Email:</div>
@@ -81,27 +82,30 @@
     <section class="meetings">
       <div class="wrap wrap-px wrap-py">
         <div class="meetings-action">
-          Meetings
+          <div class="table-name">Meetings</div>
           <div>
             <router-link class="btn" to="/create-meet">Create meet</router-link>
           </div>
         </div>
+        <hr />
         <div class="table">
           <div class="table-head">
-            <div class="span-1">Date</div>
-            <div class="span-9">Description</div>
-            <div class="span-1">Status</div>
-            <div class="span-1">Action</div>
+            <div class="date span-2">Date</div>
+            <div class="description span-8">Description</div>
+            <div class="status span-1">Status</div>
+            <div class="action span-1">Action</div>
           </div>
           <hr />
           <!-- TODO: Create page for more info about meet -->
           <!-- TODO: Create global css for tables -->
           <div class="table-rows">
             <div v-for="meet in meetings" :key="meet.id" class="row">
-              <div class="date">{{ meet.date }}</div>
-              <div class="desc">{{ meet.description }}</div>
-              <div class="status">{{ meet.status }}</div>
-              <router-link class="btn" to="/edit-meet">Edit meet</router-link>
+              <div class="date span-2">{{ meet.date }}</div>
+              <div class="description span-8">{{ meet.description }}</div>
+              <div class="status span-1">{{ meet.status }}</div>
+              <router-link class="action btn span-1" to="/edit-meet"
+                >Edit meet</router-link
+              >
             </div>
           </div>
         </div>
@@ -153,7 +157,6 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
 
         a {
           padding: 5px;
@@ -161,33 +164,7 @@ export default {
       }
 
       .fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-
-        > div {
-          display: grid;
-          gap: 10px;
-
-          .field {
-            display: flex;
-            justify-content: space-between;
-
-            .field-property,
-            .field-value {
-              white-space: nowrap;
-            }
-
-            .table-line {
-              background-color: #000;
-              width: 100%;
-              height: 1px;
-              align-self: flex-end;
-              margin: 0 5px 4px 5px;
-              opacity: 0.25;
-            }
-          }
-        }
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }
@@ -212,7 +189,6 @@ export default {
         .table-head {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
-          justify-items: center;
         }
 
         .table-rows {
@@ -222,26 +198,24 @@ export default {
           .row {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-
-            .date {
-              grid-column: span 1;
-              place-self: center;
-              white-space: nowrap;
-            }
-            .desc {
-              grid-column: span 9;
-              padding: 0 40px;
-              word-wrap: break-word;
-            }
-            .status {
-              grid-column: span 1;
-              place-self: center;
-            }
-            .btn {
-              grid-column: span 1;
-              place-self: center;
-            }
           }
+        }
+
+        .date {
+          white-space: nowrap;
+        }
+
+        .description {
+          padding: 0 40px;
+          word-wrap: break-word;
+        }
+
+        .status {
+          place-self: center;
+        }
+
+        .action {
+          place-self: center;
         }
       }
     }

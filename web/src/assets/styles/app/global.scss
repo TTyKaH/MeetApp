@@ -75,6 +75,52 @@ hr {
   margin: 20px 0;
 }
 
+.active-element {
+  transition: 0.1s background-color linear;
+  &:hover {
+    background-color: #e7e7e7;
+  }
+}
+
+// data tables
+.table-name,
+.table-head {
+  font-weight: 600;
+}
+
+.fields {
+  display: grid;
+  gap: 80px;
+
+  > div {
+    display: grid;
+    gap: 10px;
+
+    .field {
+      display: flex;
+      justify-content: space-between;
+
+      .field-property {
+        font-weight: 600;
+      }
+
+      .field-property,
+      .field-value {
+        white-space: nowrap;
+      }
+
+      .table-line {
+        background-color: #000;
+        width: 100%;
+        height: 1px;
+        align-self: flex-end;
+        margin: 0 5px 4px 5px;
+        opacity: 0.25;
+      }
+    }
+  }
+}
+
 // grid cols span
 
 .span-1 {

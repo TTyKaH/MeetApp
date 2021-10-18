@@ -2,7 +2,7 @@
   <div class="admin">
     <div class="statistic">
       <div class="wrap wrap-px wrap-py">
-        Statistic:
+        <div class="table-name">Statistic:</div>
         <hr />
         <!-- this felds like an action -->
         <div class="fields">
@@ -55,7 +55,9 @@
     </div>
     <div class="menu">
       <div class="wrap wrap-px wrap-py">
-        Go to specific lists: (lead to lists with specific sort)
+        <div class="table-name">
+          Go to specific lists: (lead to lists with specific sort)
+        </div>
         <hr />
         <div>
           <div class="actions-group">
@@ -137,35 +139,12 @@ export default {
     box-shadow: 0 2px 10px 1px #d8d8d8;
   }
 
-  a {
-    padding: 5px;
+  .fields {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .statistic {
-    hr {
-      margin: 10px 0 20px;
-    }
-
-    .fields {
-      display: grid;
-      gap: 40px;
-      grid-template-columns: repeat(2, 1fr);
-      white-space: nowrap;
-
-      .field {
-        display: flex;
-        gap: 10px;
-      }
-
-      .table-line {
-        background-color: #000;
-        width: 100%;
-        height: 1px;
-        align-self: flex-end;
-        margin: 0 5px 4px 5px;
-        opacity: 0.25;
-      }
-    }
+  a {
+    padding: 5px;
   }
 
   .menu {

@@ -26,12 +26,12 @@ const routes = [
     name: "signUp",
     component: signUp,
   },
+  // Здесь должна быть вложенность для роутера?
   {
     path: "/admin",
     name: "admin",
     component: admin,
   },
-  // Здесь должна быть вложенность для роутера?
   {
     path: "/admin/users-list",
     name: "usersList",
@@ -42,12 +42,12 @@ const routes = [
     name: "meetsList",
     component: meetsList,
   },
+  // создать дубликаты этих роутов для админа и для пользователя отдельно?
   {
     path: "/user",
     name: "user",
     component: user,
   },
-  // создать дубликаты этих роутов для админа и для пользователя отдельно?
   {
     path: "/create-meet",
     name: "createMeet",
